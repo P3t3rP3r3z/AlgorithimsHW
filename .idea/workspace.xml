@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f1bf3d5-07fa-428f-892e-eef74de2ed78" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PeterPerezHW1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PeterPerezHW1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PeterPerezHW1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PeterPerezHW1.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,25 +20,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PeterPerezHW1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="114" column="8" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="8" />
+            <state relative-caret-position="52">
+              <caret line="173" lean-forward="true" selection-start-line="172" selection-start-column="57" selection-end-line="173" />
               <folding>
+                <element signature="e#0#12535#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="method#main#0;class#PeterPerezHW1#0" />
-                <element signature="method#endTimer#0;class#PeterPerezHW1#0" />
-                <element signature="method#fillArray#0;class#PeterPerezHW1#0" />
-                <element signature="method#randomFill#0;class#PeterPerezHW1#0" />
-                <element signature="method#medianOfThreeSort#0;class#PeterPerezHW1#0" />
-                <element signature="method#medianOfThreeSortWInsertionLimit#0;class#PeterPerezHW1#0" />
-                <element signature="method#m3QuickSortWInsertion#0;class#PeterPerezHW1#0" />
-                <element signature="method#recursiveQuickSort#0;class#PeterPerezHW1#0" />
-                <element signature="method#recursiveQuickSortWInsertion#0;class#PeterPerezHW1#0" />
-                <element signature="method#medianOf3#0;class#PeterPerezHW1#0" />
-                <element signature="method#medianOf3WithInsertionSort#0;class#PeterPerezHW1#0" />
-                <element signature="method#insertionSort#0;class#PeterPerezHW1#0" />
-                <element signature="method#swap#0;class#PeterPerezHW1#0" />
-                <element signature="method#manualSort#0;class#PeterPerezHW1#0" />
-                <element signature="method#printArray#0;class#PeterPerezHW1#0" />
+                <element signature="e#2383#2384#0" expanded="true" />
+                <element signature="e#2430#2431#0" expanded="true" />
+                <element signature="e#5843#5844#0" expanded="true" />
+                <element signature="e#5911#5912#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,7 +159,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.16666667" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.16633664" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -195,25 +182,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/PeterPerezHW1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="114" column="8" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="8" />
+        <state relative-caret-position="52">
+          <caret line="173" lean-forward="true" selection-start-line="172" selection-start-column="57" selection-end-line="173" />
           <folding>
+            <element signature="e#0#12535#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#PeterPerezHW1#0" />
-            <element signature="method#endTimer#0;class#PeterPerezHW1#0" />
-            <element signature="method#fillArray#0;class#PeterPerezHW1#0" />
-            <element signature="method#randomFill#0;class#PeterPerezHW1#0" />
-            <element signature="method#medianOfThreeSort#0;class#PeterPerezHW1#0" />
-            <element signature="method#medianOfThreeSortWInsertionLimit#0;class#PeterPerezHW1#0" />
-            <element signature="method#m3QuickSortWInsertion#0;class#PeterPerezHW1#0" />
-            <element signature="method#recursiveQuickSort#0;class#PeterPerezHW1#0" />
-            <element signature="method#recursiveQuickSortWInsertion#0;class#PeterPerezHW1#0" />
-            <element signature="method#medianOf3#0;class#PeterPerezHW1#0" />
-            <element signature="method#medianOf3WithInsertionSort#0;class#PeterPerezHW1#0" />
-            <element signature="method#insertionSort#0;class#PeterPerezHW1#0" />
-            <element signature="method#swap#0;class#PeterPerezHW1#0" />
-            <element signature="method#manualSort#0;class#PeterPerezHW1#0" />
-            <element signature="method#printArray#0;class#PeterPerezHW1#0" />
+            <element signature="e#2383#2384#0" expanded="true" />
+            <element signature="e#2430#2431#0" expanded="true" />
+            <element signature="e#5843#5844#0" expanded="true" />
+            <element signature="e#5911#5912#0" expanded="true" />
           </folding>
         </state>
       </provider>

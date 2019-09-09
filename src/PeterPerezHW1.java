@@ -1,9 +1,13 @@
-import java.util.Random;
-import java.util.Scanner;
-
-//This project uses some functionality as outlined in:
+// Home Work assignment 1 for CS 4050
+// all work done by Peter Perez,
+// with the exceptions of the following:
+// This project uses some functionality as outlined in:
 // http://www.java2s.com/Tutorial/Java/0140__Collections/Quicksortwithmedianofthreepartitioning.htm
 // www.geeksforgeeks.org/insertion-sort
+// www.geeksforgeeks.org/hoares-vs-lomuto-partition-scheme-quicksort/
+
+import java.util.Random;
+import java.util.Scanner;
 
 public class PeterPerezHW1 {
 
@@ -18,7 +22,7 @@ public class PeterPerezHW1 {
         int size= keyboard.nextInt();
         System.out.println("Please enter the amount of times to run the quicksort experiment.");
         int numberOfTimesToRun = keyboard.nextInt();
-        System.out.println("Please enter 1 for median of three experiment, 2 for insertion sort.");
+        System.out.println("Please enter 1 for median of three experiment, 2 for insertion sort, 3 Hoares vs Lomuto.");
         int whichToRun = keyboard.nextInt();
 
         if(whichToRun == 1){
@@ -27,7 +31,8 @@ public class PeterPerezHW1 {
                 medianOfThreeSort(arrayToSort);
                 averageElapsedTime += elapsedTime;
             }
-            System.out.println("Average time out of "+numberOfTimesToRun+" iterations: " + averageElapsedTime/10 + "ms \n\n");
+            System.out.println("Average time out of "+numberOfTimesToRun+" iterations: "
+                    + averageElapsedTime/numberOfTimesToRun + "ms \n\n");
 
             averageElapsedTime = 0;
 
@@ -36,7 +41,8 @@ public class PeterPerezHW1 {
                 standardQuickSort(arrayToSort);
                 averageElapsedTime += elapsedTime;
             }
-            System.out.println("Average time out of "+numberOfTimesToRun+" iterations: "  + averageElapsedTime/10 + "ms\n\n");
+            System.out.println("Average time out of "+numberOfTimesToRun+" iterations: "
+                    + averageElapsedTime/numberOfTimesToRun + "ms\n\n");
         }
 
         if(whichToRun ==2){
@@ -45,7 +51,8 @@ public class PeterPerezHW1 {
                 medianOfThreeSortWInsertionLimit(arrayToSort);
                 averageElapsedTime += elapsedTime;
             }
-            System.out.println("Average time out of "+numberOfTimesToRun+" iterations: " + averageElapsedTime/10 + "ms \n\n");
+            System.out.println("Average time out of "+numberOfTimesToRun+" iterations: "
+                    + averageElapsedTime/numberOfTimesToRun + "ms \n\n");
 
             averageElapsedTime = 0;
 
@@ -54,7 +61,28 @@ public class PeterPerezHW1 {
                 standardQuickSort(arrayToSort);
                 averageElapsedTime += elapsedTime;
             }
-            System.out.println("Average time out of "+numberOfTimesToRun+" iterations: "  + averageElapsedTime/10 + "ms\n\n");
+            System.out.println("Average time out of "+numberOfTimesToRun+" iterations: "
+                    + averageElapsedTime/numberOfTimesToRun + "ms\n\n");
+        }
+
+        if(whichToRun ==3){
+            for(int i=0; i<numberOfTimesToRun; i++){
+                fillArray(size);
+                standardQuickSortHoare(arrayToSort);
+                averageElapsedTime += elapsedTime;
+            }
+            System.out.println("Average time out of "+numberOfTimesToRun+" iterations: "
+                    + averageElapsedTime/numberOfTimesToRun + "ms \n\n");
+
+            averageElapsedTime = 0;
+
+            for(int i=0; i<numberOfTimesToRun; i++){
+                fillArray(size);
+                standardQuickSort(arrayToSort);
+                averageElapsedTime += elapsedTime;
+            }
+            System.out.println("Average time out of "+numberOfTimesToRun+" iterations: "
+                    + averageElapsedTime/numberOfTimesToRun + "ms\n\n");
         }
 
     }
@@ -112,28 +140,80 @@ public class PeterPerezHW1 {
         System.out.print("Unsorted array:");
         printArray(unsorted);
         startTimer();
-        stdQuickSort(left, right, unsorted);
+        stdQuickSortLomuto(left, right, unsorted);
         endTimer();
-        System.out.print("Sorted array using Standard Quick Sort:");
+        System.out.print("Sorted array using Standard Quick Sort Lomuto:");
         printArray(unsorted);
         System.out.println("Time to Quick Sort: " + elapsedTime + "ms");
     }
 
-    private static void stdQuickSort(int left, int right, int[] unsorted){
+    private static void standardQuickSortHoare(int[] unsorted){
+        int left = 0;
+        int right = unsorted.length-1;
+        System.out.print("Unsorted array:");
+        printArray(unsorted);
+        startTimer();
+        stdQuickSortHoare(left, right, unsorted);
+        endTimer();
+        System.out.print("Sorted array using Standard Quick Sort Hoare's:");
+        printArray(unsorted);
+        System.out.println("Time to Quick Sort: " + elapsedTime + "ms");
+    }
+
+    private static void stdQuickSortLomuto(int left, int right, int[] unsorted){
         if(left >= right)
             return;
 
         // For the simplicity, we took the right most item of the array as a pivot
-        int pivot =unsorted[right];
-        int partition = partition(left, right, pivot, unsorted);
+        int pivot =unsorted[left];
+        int partition = partitionLomuto(left, right, pivot, unsorted);
 
         // Recursively, calls the quicksort with the different left and right parameters of the sub-array
-        stdQuickSort(0, partition-1,unsorted);
-        stdQuickSort(partition+1, right, unsorted);
+        stdQuickSortLomuto(0, partition-1,unsorted);
+        stdQuickSortLomuto(partition+1, right, unsorted);
 
     }
 
-    private static int partition(int left,int right,int pivot, int[] unsorted){
+    static void stdQuickSortHoare(int low,int high, int []arr)
+    {
+        if (low < high)
+        {
+        /* pi is partitioning index,
+        arr[p] is now at right place */
+            int pi = partitionHoare(arr, low, high);
+
+            // Separately sort elements before
+            // partition and after partition
+            stdQuickSortHoare(low, pi, arr);
+            stdQuickSortHoare(pi + 1, high, arr);
+        }
+    }
+
+    private static int partitionHoare(int []arr, int low,
+                         int high)
+    {
+        int pivot = arr[low];
+        int i = low - 1, j = high + 1;
+
+        while (true) {
+            do
+            {
+                i++;
+            } while (arr[i] < pivot);
+            do
+            {
+                j--;
+            } while (arr[j] > pivot);
+
+            if (i >= j)
+                return j;
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+
+    private static int partitionLomuto(int left, int right, int pivot, int[] unsorted){
         int leftCursor = left-1;
         int rightCursor = right;
         while(leftCursor < rightCursor){
@@ -147,13 +227,6 @@ public class PeterPerezHW1 {
         }
         swap(unsorted, leftCursor, right);
         return leftCursor;
-    }
-
-    private static void partitionAlgorithExperiment(int[] unsorted){
-        startTimer();
-
-        endTimer();
-        System.out.println("Time to Median of Three Sort: "+ elapsedTime);
     }
 
     private static void m3QuickSort(int[] intArray) {
