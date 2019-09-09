@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 //This project uses some functionality as outlined in:
 // http://www.java2s.com/Tutorial/Java/0140__Collections/Quicksortwithmedianofthreepartitioning.htm
+// www.geeksforgeeks.org/insertion-sort
 
 public class PeterPerezHW1 {
 
@@ -100,9 +101,9 @@ public class PeterPerezHW1 {
         startTimer();
         m3QuickSortWInsertion(unsorted, subSize);
         endTimer();
-        System.out.print("Sorted array using Median of Three:");
+        System.out.print("Sorted array using quick sort with insertion sort cap:");
         printArray(unsorted);
-        System.out.println("Time to Median of Three Sort: " + elapsedTime + "ms");
+        System.out.println("Time to Sort: " + elapsedTime + "ms");
     }
 
     private static void standardQuickSort(int[] unsorted){
@@ -146,13 +147,6 @@ public class PeterPerezHW1 {
         }
         swap(unsorted, leftCursor, right);
         return leftCursor;
-    }
-
-    private static void quickSortStopBeforeBitterEnd(int[] unsorted){
-        startTimer();
-
-        endTimer();
-        System.out.println("Time to Median of Three Sort: "+ elapsedTime);
     }
 
     private static void partitionAlgorithExperiment(int[] unsorted){
